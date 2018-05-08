@@ -22,5 +22,12 @@
     "path": "^0.12.7",
     "pg": "^7.4.3",
     "pg-promise": "^8.4.3"
+  },
+  "devDependencies": {
+    "babel-register": "^6.26.0",
+    "nodemon": "^1.17.4"
+  },
+  "scripts": {
+    "start": "nodemon -r babel-register server.js"
   }
 }

@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "git@github.com:dlevenson44/ReciP_React.git",
   "author": "dlevenson44 <daniellevenson4@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^3.5.1"
+  }
 }

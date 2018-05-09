@@ -8,7 +8,6 @@ class Register extends Component {
             password: '',
             confirmPassword: '',
             email: '',
-            name: ''
         }
         this.handleInputChange = this.handleInputChange.bind(this)
         this.passwordConfirm = this.passwordConfirm.bind(this)
@@ -41,7 +40,6 @@ class Register extends Component {
                     <input type="password" name="confirmPassword" value={this.state.confirmPassword} placeholder="Confirm Password" onChange={this.handleInputChange} />
                     {this.passwordConfirm()}
                     <input type="email" name="email" value={this.state.email} placeholder="Email" onChange={this.handleInputChange} />
-                    <input type="text" name="name" value={this.state.name} placeholder="Name" onChange={this.handleInputChange} />
                     <input type="submit" value="Create Account" />
                 </form>
             </div>

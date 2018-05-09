@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 
+import Error from './components/Error';
+import Favorites from './components/Favorites';
 import Header from './components/Header';
+import Login from './components/Login';
+import Profile from './components/Profile';
+import Register from './components/Register';
 
 class App extends Component {
   constructor() {
@@ -12,7 +17,12 @@ class App extends Component {
       user: null,
       fireRedirect: false,
       redirectPath: null,
-    }    
+    }   
+    this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
+    this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this)
+    this.handleUpdateSubmit = this.handleUpdateSubmit.bind(this)
+    this.logout = this.logout.bind(this)
+    this.userDelete = this.userDelete.bind(this)
   }
 
   handleLoginSubmit(e, data) {

@@ -69,6 +69,44 @@ class App extends Component {
     }).catch(err => console.log(err))
   }
 
+  logout() {
+    fetch('/api/auth/logout', {
+      credentials: 'include',
+    }).then(res => res.json())
+    .then(res => {
+      this.setState({
+        auth: false,
+        user: res.data.user,
+      })
+    }).catch(err => console.log(err))
+  }
+
+  userDelete(id) {
+    fetch(`/api/auth${id}`, {
+      method: 'DELETE',
+    }).then(res => res.json())
+    .then(res => {
+      this.setState({
+        fireRedirect: true,
+        redirectPath: '/',
+        auth: false
+      })
+      alert('Profile Deleted')
+    }).catch(err => console.log(err))
+  }
+
+  componentWillMount() {
+    fetch('/api/auth/verify', {
+      credentials: 'include',
+    }).then(res => res.json())
+    .then(res => {
+      this.setState({
+        auth: res.auth,
+        user: res.data.user,
+      })
+    }).catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">

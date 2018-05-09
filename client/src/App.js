@@ -119,6 +119,7 @@ class App extends Component {
 
   render() {
     return (
+      <Router>
       <div className="App">
         <Header header="ReciP" />
 
@@ -146,6 +147,7 @@ class App extends Component {
           : <Error />
         )} />
       </div>
+      </Router>
     );
   }
 }

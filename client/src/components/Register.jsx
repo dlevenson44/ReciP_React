@@ -1,0 +1,37 @@
+import React, { Component } from 'react';
+
+class Register extends Component {
+    constructor() {
+        this.state = {
+            username: '',
+            password: '',
+            confirmPassword: '',
+            email: '',
+            name: ''
+        }
+        this.handleInputChange = this.handleInputChange.bind(this)
+    }
+
+    handleInputChange(e) {
+        const name = e.target.name;
+        const value = e.target.value;
+        this.setState({
+            [name]: value
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                <form onSubmit={(e) => this.props.handleRegisterSubmit(e, this.state)}>
+                    <input type="text" name="username" value={this.state.username} placeholder="Username" onChange={this.handleInputChange} />
+                    <input type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
+                    <input type="password" name="confirmPassword" value={this.state.confirmPassword} placeholder="Confirm Password" onChange={this.handleInputChange} />
+                    <input type="email" name="email" value={this.state.email} placeholder="Email" onChange={this.handleInputChange} />
+                    <input type="text" name="name" value={this.state.name} placeholder="Name" onChange={this.handleInputChange} />
+                    <input type="submit" value="Create Account" />
+                </form>
+            </div>
+        )
+    }
+}

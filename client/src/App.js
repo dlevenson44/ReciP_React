@@ -54,6 +54,7 @@ class App extends Component {
       body: JSON.stringify(data)
     }).then(res => res.json())
     .then(res => {
+      console.log(res)
       this.setState({
         auth: res.auth,
         user: res.data.user

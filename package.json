@@ -9,7 +9,8 @@
     "node": "9.11.1"
   },
   "dependencies": {
-    "concurrently": "^3.5.1"
+    "concurrently": "^3.5.1",
+    "eslint-config-rallycoding": "^3.2.0"
   },
   "scripts": {
     "build": "concurrently \"cd client && yarn build\" \"cd server && yarn build\"",

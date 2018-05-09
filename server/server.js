@@ -51,7 +51,7 @@ app.get('/', (req, res) => {
 // routes
 const authRoutes = require('./routes/auth-routes')
 app.use('/api/auth', authRoutes)
-const movieRoutes = require('./routes/recipe-routes')
+const recipeRoutes = require('./routes/recipe-routes')
 app.use('/api/recipes', recipeRoutes)
 
 // error handlers

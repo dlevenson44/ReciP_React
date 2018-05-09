@@ -5,6 +5,70 @@ import './App.css';
 import Header from './components/Header';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      auth: false,
+      user: null,
+      fireRedirect: false,
+      redirectPath: null,
+    }    
+  }
+
+  handleLoginSubmit(e, data) {
+    e.preventDefault()
+    fetch('/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(data)
+    }).then(res => res.json())
+    .then(res => {
+      this.setState({
+        auth: res.auth,
+        user: res.data.user
+      })
+    }).catch(err => console.log(err))
+  }
+
+  handleRegisterSubmit(e, data) {
+    e.preventDefault()
+    fetch('/api/auth/register', {
+      method: 'POST',
+      headerS: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(data)
+    }).then(res => res.json())
+    .then(res => {
+      this.setState({
+        auth: res.auth,
+        user: res.data.user
+      })
+    }).catch(err => console.log(err))
+  }
+
+  handleUpdateSubmit(e, data, id) {
+    e.preventDefault()
+    fetch(`/api/auth${id}`, {
+      method: 'PUT',
+      credentials: 'inlucde',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }).then(res => res.json())
+    .then(res => {
+      this.setState({
+        fireRedirect: true,
+        redirectPath: '/profile'
+      })
+    }).catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">

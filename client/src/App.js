@@ -98,7 +98,7 @@ class App extends Component {
   }
 
   userDelete(id) {
-    fetch(`/api/auth${id}`, {
+    fetch(`/api/auth/${id}`, {
       method: 'DELETE',
     }).then(res => res.json())
     .then(res => {

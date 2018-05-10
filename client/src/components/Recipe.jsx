@@ -46,7 +46,8 @@ class Recipe extends Component {
         if (this.props.auth === true) {
             return (
                 <div>
-                    <form onSubmit={(e) => this.addFavorite()}>
+                    <form onSubmit={(e) => this.addFavorite(e, this.state)}>
+                        <input type="submit" value="Add Favorite" />
                     </form>
                 </div>
             )
@@ -59,6 +60,7 @@ class Recipe extends Component {
                 <h3>{this.props.recipe.label} -- <a href={this.props.recipe.url}>Full Recipe</a></h3>
                 <p>{this.props.recipe.dietLabels[0]}</p>
                 <p>{this.props.recipe.healthLabels[0]}</p>
+                {this.renderButton()}
                 <div className="recipe-container">
                 <div>
                 <img src={this.props.recipe.image} />

@@ -4,9 +4,7 @@ import IngredientList from './IngredientList';
 class Recipe extends Component {
     constructor(props) {
         super(props)
-        console.log(this.props, 'OOOOOO')
         this.state = {
-            favorite: false,
             title: this.props.recipe.label,
             diet: this.props.recipe.dietLabels[0],
             calories: 0,
@@ -24,6 +22,24 @@ class Recipe extends Component {
         this.setState({
             calories: calPerServing
         })
+    }
+    
+    addFavorite (e, data) {
+        e.preventDefault()
+        console.log('adding favorite')
+        fetch('/api/recipes/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        }).then(res => res.json())
+        .then(res => {
+            this.setState({
+                fireRedirect: true,
+                redirectPath: '/favorites'
+            })
+        }).catch(err => console.log(err))
     }
 
     renderButton() {

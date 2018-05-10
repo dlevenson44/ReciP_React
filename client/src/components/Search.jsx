@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import RecipeList from './RecipeList'
+
 class Search extends Component {
     constructor() {
         super()
@@ -37,7 +39,7 @@ class Search extends Component {
     renderResults() {
         let results = this.state.results
         if (this.state.results.length > 0) {
-            console.log('supbroooo')
+            return <RecipeList />
         }
     }
 

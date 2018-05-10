@@ -6,16 +6,18 @@ const Recipe = (props) => {
     console.log(props.recipe)
     return (
         <div>
-            <h3>{props.recipe.label}</h3>
+            <h3>{props.recipe.label} -- <a href={props.recipe.url}>Full Recipe</a></h3>
+            <p>{props.recipe.dietLabels[0]}</p>
+            <div className="recipe-container">
             <div>
             <img src={props.recipe.image} />
-            <a href={props.recipe.url}>View Full Recipe</a>
             <p>{props.recipe.dietLabels[0]}</p>
-            </div>
-            <div>
             <p>{calPerServing} calories per serving</p>            
             <p>{props.recipe.yield} servings</p>
+            </div>
+            <div>
             <IngredientList ingredients={props.recipe.ingredients} />
+            </div>
             </div>
         </div>
     )

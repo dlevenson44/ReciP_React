@@ -6,6 +6,7 @@ import Error from './components/Error';
 import Favorites from './components/Favorites';
 import Header from './components/Header';
 import Login from './components/Login';
+import Nav from './components/Nav';
 import Profile from './components/Profile';
 import Register from './components/Register';
 
@@ -126,6 +127,7 @@ class App extends Component {
       <Router>
       <div className="App">
         <Header header="ReciP" />
+        <Nav logout={this.logout} auth={this.state.auth} />
 
         <Route exact path="/login" render={() => (
           this.state.auth

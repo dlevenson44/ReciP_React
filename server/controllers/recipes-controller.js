@@ -58,4 +58,4 @@ recipesController.delete = (req, res, next) => {
     }).catch(next)
 }
 
-export default recipesController;
+module.exports = recipesController;

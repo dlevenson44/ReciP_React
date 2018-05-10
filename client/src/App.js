@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Nav from './components/Nav';
 import Profile from './components/Profile';
 import Register from './components/Register';
+import Search from './components/Search';
 
 class App extends Component {
   constructor() {
@@ -128,6 +129,7 @@ class App extends Component {
       <div className="App">
         <Header header="ReciP" />
         <Nav logout={this.logout} auth={this.state.auth} />
+        <Search />
 
         <Route exact path="/login" render={() => (
           this.state.auth

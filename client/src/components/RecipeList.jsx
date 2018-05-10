@@ -1,9 +1,13 @@
 import React from 'react';
 
-const RecipeList = () => {
+import Recipe from './Recipe';
+
+const RecipeList = (props) => {
     return (
         <div>
-            <h1>hello world</h1>
+            {props.results.map(recipe => {
+                return <Recipe key={recipe.id} recipe={recipe} />
+            })}
         </div>
     )
 }

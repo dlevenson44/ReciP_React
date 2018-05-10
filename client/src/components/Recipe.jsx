@@ -4,7 +4,7 @@ import IngredientList from './IngredientList';
 class Recipe extends Component {
     render () {
         const calPerServing = (this.props.recipe.calories / this.props.recipe.yield).toPrecision(6)
-        console.log(this.props.recipe)
+        console.log(this)        
         return (
             <div>
                 <h3>{this.props.recipe.label} -- <a href={this.props.recipe.url}>Full Recipe</a></h3>

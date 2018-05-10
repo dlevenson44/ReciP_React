@@ -39,7 +39,7 @@ class Search extends Component {
     renderResults() {
         let results = this.state.results
         if (this.state.results.length > 0) {
-            return <RecipeList results={this.state.results} />
+            return <RecipeList results={this.state.results} auth={this.props.auth} user={this.props.user} />
         }
     }
 

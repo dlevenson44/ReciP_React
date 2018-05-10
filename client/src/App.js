@@ -129,7 +129,8 @@ class App extends Component {
       <div className="App">
         <Header header="ReciP" />
         <Nav logout={this.logout} auth={this.state.auth} />
-        <Search />
+        
+        <Route exact path="/" auth={this.state.auth} user={this.state.user} render={() => <Search user={this.state.user} auth={this.state.auth}/ >} />        
 
         <Route exact path="/login" render={() => (
           this.state.auth

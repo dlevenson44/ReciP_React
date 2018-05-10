@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Nav = (props) => {
     return (
-        <div>
+        <div className="nav-container">
         {props.auth ? (
             <div>
-            <ul>
+            <ul className="nav-list">
                 <li><Link to = '/'>Home</Link></li>
                 <li><Link to = '/favorites'>Favorites</Link></li>
                 <li><Link to = '/' onClick={props.logout}>Logout</Link></li>
@@ -14,10 +14,10 @@ const Nav = (props) => {
             </div>
         ) : (
             <div>
-            <ul>
-                <li><Link to = '/'>Home</Link></li>
-                <li><Link to = '/register'>Register</Link></li>
-                <li><Link to = '/login'>Login</Link></li>
+            <ul className="nav-list">
+                <li><Link to = '/' className="nav-link">Home</Link></li>
+                <li><Link to = '/register' className="nav-link">Register</Link></li>
+                <li><Link to = '/login' className="nav-link">Login</Link></li>
             </ul>
             </div>
         )}

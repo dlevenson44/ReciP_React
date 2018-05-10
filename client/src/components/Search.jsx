@@ -4,11 +4,12 @@ class Search extends Component {
     constructor() {
         super()
         this.state = {
-            results: null,
+            results: {},
             search: ''
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.searchRecipe = this.searchRecipe.bind(this);
+        this.renderResults = this.renderResults.bind(this)
     }
 
     handleInputChange(e) {
@@ -25,7 +26,19 @@ class Search extends Component {
         fetch(`/api/recipes/${data}`, {
             method: 'GET',
         }).then(res => res.json())
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res)
+            this.setState({
+                results: res.recipe.hits,
+            })
+        })
+    }
+
+    renderResults() {
+        let results = this.state.results
+        if (this.state.results.length > 0) {
+            console.log('supbroooo')
+        }
     }
 
     render() {
@@ -35,6 +48,7 @@ class Search extends Component {
                     <input type="text" id="search-field" name="search" placeholder="Search Recipes" value={this.state.search} onChange={this.handleInputChange} />
                     <input type="submit" value="Search" />
                 </form>
+                {this.renderResults()}
             </div>
         )
     }

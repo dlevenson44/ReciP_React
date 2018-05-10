@@ -3,7 +3,9 @@ import React from 'react';
 const IngredientList = (props) => {
     return (
         <div>
-            <p>ingredeitns</p>
+            {props.ingredients.map(ingredient => {
+                return <p>Ingredient!</p>
+            })}
         </div>
     )
 }

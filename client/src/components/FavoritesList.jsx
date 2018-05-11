@@ -34,7 +34,7 @@ class FavoritesList extends Component {
             return (
                 <div>
                     {this.state.favorites.map(favorite => {
-                        return <Favorite />
+                        return <Favorite favorite={favorite} key={favorite.id} />
                     })}
                 </div>
             )

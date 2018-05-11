@@ -8,5 +8,6 @@ const recipesRouter = express.Router()
 recipesRouter.get('/favorites', recipesController.index)
 recipesRouter.get('/:search', recipeHelpers.getRecipes, recipesController.sendApiRecipe)
 recipesRouter.post('/create', recipesController.create)
+recipesRouter.delete('/favorites', recipesController.delete)
 
 module.exports = recipesRouter;

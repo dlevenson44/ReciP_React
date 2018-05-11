@@ -5,6 +5,7 @@ const recipesController = require('../controllers/recipes-controller')
 
 const recipesRouter = express.Router()
 
+recipesRouter.get('/favorites', recipesController.index)
 recipesRouter.get('/:search', recipeHelpers.getRecipes, recipesController.sendApiRecipe)
 recipesRouter.post('/create', recipesController.create)
 

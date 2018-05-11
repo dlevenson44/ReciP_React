@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
+import Favorite from './components/Favorite';
+
 class FavoritesList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            favorites: {}
+            favorites: []
         }
         this.fetchFavorites = this.fetchFavorites.bind(this)
     }
@@ -22,18 +24,27 @@ class FavoritesList extends Component {
         }).then(res => res.json())
         .then(res => {
             this.setState({
-                favorites: res
+                favorites: res.data.recipe
             })
         })
     }
 
     render() {
-        // this.fetchFavorites()
-        return (
-            <div>
-                <p>FavoritesList Component</p>
-            </div>
-        )
+        if (this.state.favorites.length > 0) {
+            return (
+                <div>
+                    {this.state.favorites.map(favorite => {
+                        return <Favorite />
+                    })}
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <h3>No Favorites Added Yet</h3>
+                </div>
+            )
+        }
     }
 }
 

@@ -55,8 +55,7 @@ class Recipe extends Component {
         }
     }
 
-    render () {    
-        console.log(this.props, 'FROM RECIPE!')            
+    render () {              
         return (
             <div>
                 <h3>{this.props.recipe.label} -- <a href={this.props.recipe.url}>Full Recipe</a></h3>

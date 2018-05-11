@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import './App.css';
 
 import Error from './components/Error';
-import Favorites from './components/Favorites';
+import FavoritesList from './components/FavoritesList';
 import Header from './components/Header';
 import Login from './components/Login';
 import Nav from './components/Nav';
@@ -145,7 +145,7 @@ class App extends Component {
 
         <Route exact path="/favorites" render={() => (
           this.state.auth
-          ? <Favorites user={this.state.user} />
+          ? <FavoritesList auth={this.state.auth} user={this.state.user} />
           : <Error />
         )} />
 

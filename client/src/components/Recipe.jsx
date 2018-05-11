@@ -29,6 +29,7 @@ class Recipe extends Component {
         console.log('adding favorite')
         fetch('/api/recipes/create', {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -54,7 +55,8 @@ class Recipe extends Component {
         }
     }
 
-    render () {                
+    render () {    
+        console.log(this.props, 'FROM RECIPE!')            
         return (
             <div>
                 <h3>{this.props.recipe.label} -- <a href={this.props.recipe.url}>Full Recipe</a></h3>

@@ -26,16 +26,18 @@ recipesController.index = (req, res, next) => {
 
 // create favorite recipe
 recipesController.create = (req, res, next) => {
-    console.log(req, 'REQ.USER REQ.USER OOOOOOOOO')
+    console.log(req.user.id, 'REQ.USER REQ.USER OOOOOOOOO')
     Recipe.create({
         title: req.body.title,
         diet: req.body.diet,
         calories: req.body.calories,
+        servings: req.body.servings,
         health: req.body.health,
         ingredient: req.body.ingredient,
         img: req.body.img,
-        link: req.body.link
-    }, req.user.id).then(recipe => {
+        link: req.body.link,
+        user_id: req.user.id
+    }).then(recipe => {
         res.json({
             message: 'favorite added',
             data: { recipe }

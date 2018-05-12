@@ -16,8 +16,7 @@ class FavoritesList extends Component {
     }
 
     // fetch favorite recipes
-    fetchFavorites() {
-        console.log('fetched favorite')
+    fetchFavorites() {        
         fetch('/api/recipes/favorites', {
             method: 'GET',
             credentials: 'include'

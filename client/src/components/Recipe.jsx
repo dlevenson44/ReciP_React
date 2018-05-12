@@ -26,7 +26,6 @@ class Recipe extends Component {
     
     addFavorite (e, data) {
         e.preventDefault()
-        console.log('adding favorite')
         fetch('/api/recipes/create', {
             method: 'POST',
             credentials: 'include',
@@ -55,7 +54,7 @@ class Recipe extends Component {
         }
     }
 
-    render () {              
+    render () {                   
         return (
             <div>
                 <h3>{this.props.recipe.label} -- <a href={this.props.recipe.url}>Full Recipe</a></h3>

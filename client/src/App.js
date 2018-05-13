@@ -47,7 +47,7 @@ class App extends Component {
   }
 
   handleRegisterSubmit(e, data) {
-    e.preventDefault()
+    // e.preventDefault()
     fetch('/api/auth/register', {
       method: 'POST',
       headers: {
@@ -58,12 +58,12 @@ class App extends Component {
     }).then(res => res.json())
     .then(res => {
       console.log(res)
-      console.log(this.state)
+      // console.log(this.state)
       this.setState({
         auth: res.auth,
         user: res.data.user
       })
-      console.log(this.state)
+      // console.log(this.state)
     }).catch(err => console.log(err))
   }
 

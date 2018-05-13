@@ -8,6 +8,7 @@ class Register extends Component {
             password: '',
             confirmPassword: '',
             email: '',
+            fetchedResults: []
         }
         this.handleInputChange = this.handleInputChange.bind(this)
         this.passwordConfirm = this.passwordConfirm.bind(this)
@@ -20,9 +21,12 @@ class Register extends Component {
             method: 'GET',
         }).then(res => res.json())
         .then(res => {
-            console.log(res)
+            this.setState({
+                fetchedResults: res.data.usernames
+            })
         })
     }
+    
 
     handleInputChange(e) {
         const name = e.target.name;

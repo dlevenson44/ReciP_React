@@ -3,8 +3,6 @@ import React from 'react';
 import FaveIngredientList from './FaveIngredientList';
 
 const Favorite = (props) => {
-    let json = props.favorite.ingredient
-    console.log(json)
     return (
         <div>
             <p>{props.favorite.calories}</p>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import Favorite from './Favorite';
 
@@ -6,13 +7,29 @@ class FavoritesList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            favorites: []
+            favorites: [],
+            fireRedirect: false,
+            redirectPath: null
         }
+        this.deleteFavorite = this.deleteFavorite.bind(this)
         this.fetchFavorites = this.fetchFavorites.bind(this)
     }
 
     componentWillMount() {
         this.fetchFavorites()
+    }
+
+    // delee favorite recipe
+    deleteFavorite(id) {
+        fetch(`/api/recipes/favorites/${id}`, {
+            method: 'DELETE',
+        }).then(res => res.json())
+        .then(res => {
+            this.setState({
+                fireRedirect: true,
+                redirectPath: '/favorites'
+            })
+        }).catch(err => console.log(err))
     }
 
     // fetch favorite recipes

@@ -13,6 +13,7 @@ const Favorite = (props) => {
             <img src={props.favorite.img} />
             <a href={props.favorite.link}>See full recipe</a>
             <FaveIngredientList ingredients={props.favorite.ingredient} />
+            <button onClick={() => props.deleteFavorite(props.favorite.id)}>Delete Favorite</button>
         </div>
     )
 }

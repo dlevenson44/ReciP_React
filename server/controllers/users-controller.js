@@ -6,8 +6,8 @@ const User = require('../models/user.js')
 const usersController = {}
 
 // pull all usernames
-usersController.findUsernames = (req, res, next) => {
-	User.findAllUsernames()
+usersController.findUsernamesAndEmails = (req, res, next) => {
+	User.findAllUsernamesAndEmails()
 	.then(usernames => {
 		res.json({
 			message: 'usernames returned',

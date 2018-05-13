@@ -4,14 +4,9 @@ const db = require('../db/config')
 // initiate User object
 const User = {}
 
-// find all usernames
-User.findAllUsernames = () => {
-	return db.query('SELECT username FROM users');
-}
-
-// find all emails
-User.findAllEmails = () => {
-	return db.query('SELECT email FROM users');
+// find all usernames and emails
+User.findAllUsernamesAndEmails = () => {
+	return db.query('SELECT username, email FROM users');
 }
 
 // find username function

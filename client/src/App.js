@@ -24,7 +24,7 @@ class App extends Component {
     this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this)
     this.handleUpdateSubmit = this.handleUpdateSubmit.bind(this)
     this.logout = this.logout.bind(this)
-    this.searchTakenCredentials = this.searchTakenCredentials.bind(this)
+    // this.searchTakenCredentials = this.searchTakenCredentials.bind(this)
     this.userDelete = this.userDelete.bind(this)
   }
 
@@ -97,14 +97,7 @@ class App extends Component {
     }).catch(err => console.log(err))
   }
 
-  searchTakenCredentials() {
-    fetch('/api/auth/taken', {
-      method: 'GET',
-    }).then(res => res.json())
-    .then(res => {
-      console.log(res)
-    })
-  }
+
 
   userDelete(id) {
     fetch(`/api/auth/${id}`, {
@@ -150,7 +143,7 @@ class App extends Component {
         <Route exact path="/register" render={() => (
           this.state.auth
           ? <Redirect to="/favorites" />
-          : <Register handleRegisterSubmit={this.handleRegisterSubmit} searchTakenCredentials={this.searchTakenCredentials} />
+          : <Register handleRegisterSubmit={this.handleRegisterSubmit} />
         )} />
 
         <Route exact path="/favorites" render={() => (

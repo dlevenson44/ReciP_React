@@ -8,6 +8,9 @@ const usersController = require('../controllers/users-controller')
 // on /register page bring in create function from user controller
 authRouter.post('/register', usersController.create)
 
+// fetch all registered usernames and emails
+authRouter.get('/taken', usersController.findUsernamesAndEmails)
+
 // allow users to login on /login
 authRouter.post('/login', passport.authenticate('local', {
 	successRedirect: '/api/auth/verify',

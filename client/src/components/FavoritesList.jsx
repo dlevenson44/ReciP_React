@@ -25,10 +25,7 @@ class FavoritesList extends Component {
             method: 'DELETE',
         }).then(res => res.json())
         .then(res => {
-            this.setState({
-                fireRedirect: true,
-                redirectPath: '/favorites'
-            })
+            window.location.reload()
         }).catch(err => console.log(err))
     }
 

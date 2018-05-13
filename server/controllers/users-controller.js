@@ -5,6 +5,28 @@ const User = require('../models/user.js')
 // initiate usersController object
 const usersController = {}
 
+// pull all usernames
+usersController.findUsernames = (req, res, next) => {
+	User.findAllUsernames()
+	.then(usernames => {
+		res.json({
+			message: 'usernames returned',
+			data: { usernames }
+		})
+	}).catch(next)
+}
+
+// pull all emails
+usersController.findEmails = (req, res, next) => {
+	User.findAllEmails()
+	.then(emails => {
+		res.json({
+			message: 'emails returned',
+			data: { emails }
+		})
+	}).catch(next)
+}
+
 // account creation
 usersController.create = (req, res, next) => {
 	const salt = bcrypt.genSaltSync()

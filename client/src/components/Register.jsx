@@ -8,7 +8,7 @@ class Register extends Component {
             password: '',
             confirmPassword: '',
             email: '',
-            fetchedResults: []
+            // fetchedResults: []
         }
         this.compareCredentials = this.compareCredentials.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -22,27 +22,27 @@ class Register extends Component {
             method: 'GET',
         }).then(res => res.json())
         .then(res => {
-            this.setState({
-                fetchedResults: res.data.usernames
-            })
-            this.compareCredentials()
+            // this.setState({
+            //     fetchedResults: res.data.usernames
+            // })
+            this.compareCredentials(e)
         })
     }
 
-    compareCredentials() {
-        for (let i = 0; i < this.state.fetchedResults.length; i++) {
-            console.log(this.state.fetchedResults[i])
-            if (this.state.fetchedResults[i].username === this.state.username) {
-                console.log('username taken')
-                return <p>Username taken</p>
-            } else if (this.state.fetchedResults[i].email === this.state.email) {
-                console.log('email taken')
-                return <p>There is already an account associated with this email</p>
-            } else {
+    compareCredentials(e) {
+        // for (let i = 0; i < this.state.fetchedResults.length; i++) {
+            // console.log(this.state.fetchedResults[i])
+            // if (this.state.fetchedResults[i].username === this.state.username) {
+            //     console.log('username taken')
+            //     return <p>Username taken</p>
+            // } else if (this.state.fetchedResults[i].email === this.state.email) {
+            //     console.log('email taken')
+            //     return <p>There is already an account associated with this email</p>
+            // } else {
                 console.log('creating account')
-                this.props.handleRegisterSubmit(this.state)
-            }
-        }
+                this.props.handleRegisterSubmit(e, this.state)
+            // }
+        // }
     }
     
 
@@ -64,6 +64,7 @@ class Register extends Component {
         }
     }
 
+    
     // <form onSubmit={(e) => this.props.handleRegisterSubmit(e, this.state)}>
 
     render() {

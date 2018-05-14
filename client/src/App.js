@@ -47,7 +47,7 @@ class App extends Component {
   }
 
   handleRegisterSubmit(e, data) {
-    e.preventDefault()
+    // e.preventDefault()
     fetch('/api/auth/register', {
       method: 'POST',
       headers: {

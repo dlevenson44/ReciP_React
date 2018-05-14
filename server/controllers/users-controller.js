@@ -5,24 +5,13 @@ const User = require('../models/user.js')
 // initiate usersController object
 const usersController = {}
 
-// pull all usernames
+// pull all usernames and emails
 usersController.findUsernamesAndEmails = (req, res, next) => {
 	User.findAllUsernamesAndEmails()
 	.then(usernames => {
 		res.json({
 			message: 'usernames returned',
 			data: { usernames }
-		})
-	}).catch(next)
-}
-
-// pull all emails
-usersController.findEmails = (req, res, next) => {
-	User.findAllEmails()
-	.then(emails => {
-		res.json({
-			message: 'emails returned',
-			data: { emails }
 		})
 	}).catch(next)
 }

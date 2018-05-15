@@ -19,6 +19,10 @@ class Register extends Component {
         this.checkUsernameLength = this.checkUsernameLength.bind(this)
     }
 
+    componentWillMount() {
+        this.compareCredentials()  
+    }
+
     searchTakenCredentials(e) {
         e.preventDefault()
         fetch('/api/auth/taken', {
@@ -112,7 +116,7 @@ class Register extends Component {
                 {this.checkUsernameLength()}
                 {this.checkPasswordLength()}
                 {this.passwordConfirm()}
-                {this.compareCredentials()}               
+                             
             </div>
         )
     }

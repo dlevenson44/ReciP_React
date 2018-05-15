@@ -15,7 +15,7 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE IF NOT EXISTS users(
 	id SERIAL PRIMARY KEY,
 	username VARCHAR UNIQUE NOT NULL CHECK (char_length("username") >= 3 AND char_length("username") <=25),
-	password_digest TEXT NOT NULL CHECK (char_length("password_digest" >= 5),
+	password_digest TEXT NOT NULL CHECK (char_length("password_digest") >= 5),
 	email VARCHAR UNIQUE NOT NULL
 );
 

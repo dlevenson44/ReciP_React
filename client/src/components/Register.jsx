@@ -24,6 +24,7 @@ class Register extends Component {
     }
 
     searchTakenCredentials(e) {
+        console.log('clicked')
         e.preventDefault()
         fetch('/api/auth/taken', {
             method: 'GET',
@@ -32,6 +33,7 @@ class Register extends Component {
             this.setState({
                 fetchedResults: res.data.usernames
             })
+            console.log(this.state)
             this.compareCredentials(e)
         })
     }
@@ -40,8 +42,8 @@ class Register extends Component {
         for (let i = 0; i < this.state.fetchedResults.length; i++) {
             console.log(this.state.fetchedResults[i])
             if (this.state.fetchedResults[i].username === this.state.username) {
-                console.log('username taken')
-                return (<p>There is already an account with this username.</p>)
+                // console.log('username taken')
+                return (<div><p>There is already an account with this username.</p></div>)
             } else if (this.state.fetchedResults[i].email === this.state.email) {
                 console.log('email taken')
                 return (<p>There is already an account associated with this email.</p>)
@@ -105,17 +107,17 @@ class Register extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={(e) => this.searchTakenCredentials(e)}>
-                    <input type="text" name="username" value={this.state.username} placeholder="Username" onChange={this.handleInputChange} />
-                    <input type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
-                    <input type="password" name="confirmPassword" value={this.state.confirmPassword} placeholder="Confirm Password" onChange={this.handleInputChange} />                    
-                    <input type="email" name="email" value={this.state.email} placeholder="Email" onChange={this.handleInputChange} />
-                    <input type="submit" value="Create Account" />
+            <div className="register-container">
+                <form className="register-form" onSubmit={(e) => this.searchTakenCredentials(e)}>
+                    <input className="register-input" type="text" name="username" value={this.state.username} placeholder="Username" onChange={this.handleInputChange} />
+                    <input className="register-input" type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
+                    <input className="register-input" type="password" name="confirmPassword" value={this.state.confirmPassword} placeholder="Confirm Password" onChange={this.handleInputChange} />                    
+                    <input className="register-input" type="email" name="email" value={this.state.email} placeholder="Email" onChange={this.handleInputChange} />
+                    <input className="register-input" type="submit" value="Create Account" />
+                    {this.checkUsernameLength()}
+                    {this.checkPasswordLength()}
+                    {this.passwordConfirm()}
                 </form> 
-                {this.checkUsernameLength()}
-                {this.checkPasswordLength()}
-                {this.passwordConfirm()}
                              
             </div>
         )

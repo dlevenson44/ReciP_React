@@ -21,3 +21,5 @@ CREATE TABLE IF NOT EXISTS users(
 
 ALTER TABLE favoriterecipes
 ADD COLUMN user_id INTEGER REFERENCES users(id);
+
+INSERT INTO users (username, password_digest, email) VALUES ('test123', 'password', 'dan@dan1.com');

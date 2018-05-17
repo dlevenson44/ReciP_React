@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import IngredientList from './IngredientList';
 
 class Recipe extends Component {
@@ -25,6 +26,7 @@ class Recipe extends Component {
     }
     
     addFavorite (e, data) {
+        console.log('adding')
         e.preventDefault()
         fetch('/api/recipes/create', {
             method: 'POST',
@@ -39,6 +41,7 @@ class Recipe extends Component {
                 fireRedirect: true,
                 redirectPath: '/favorites'
             })
+            alert('Favorite added')
         }).catch(err => console.log(err))
     }
 
@@ -47,7 +50,7 @@ class Recipe extends Component {
             return (
                 <div>
                     <form onSubmit={(e) => this.addFavorite(e, this.state)}>
-                        <input type="submit" value="Add Favorite" />
+                        <input type="submit" value="Add Favorite" id="favorite-submit" />
                     </form>
                 </div>
             )
@@ -61,13 +64,12 @@ class Recipe extends Component {
                 <p>{this.props.recipe.dietLabels[0]}</p>
                 <p>{this.props.recipe.healthLabels[0]}</p>
                 {this.renderButton()}
-                <div className="recipe-container">
+                <div className="recipe-subcontainer">
                 <div>
                 <img src={this.props.recipe.image} />
                 <p>{this.props.recipe.dietLabels[0]}</p>
                 <p>{this.state.calories} calories per serving</p>            
                 <p>{this.props.recipe.yield} servings</p>
-                {this.renderButton()}
                 </div>
                 <div>
                 <IngredientList ingredients={this.props.recipe.ingredients} />

@@ -2,18 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
 .App-title {
   font-size: 1.5em;
 }
@@ -23,6 +11,7 @@
 }
 
 .mainheader {
+  font-family: 'Ubuntu', sans-serif;
   font-size: 48px;
 }
 
@@ -89,6 +78,7 @@
 
 @media only screen and (max-width: 800px) {
   .mainheader {
+    font-family: 'Ubuntu', sans-serif;
     font-size: 32px;
   }
   .nav-link {

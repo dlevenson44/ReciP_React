@@ -7,9 +7,9 @@ const Nav = (props) => {
         {props.auth ? (
             <div>
             <ul className="nav-list">
-                <li><Link to = '/'>Home</Link></li>
-                <li><Link to = '/favorites'>Favorites</Link></li>
-                <li><Link to = '/' onClick={props.logout}>Logout</Link></li>
+                <li><Link to = '/' className="nav-link" >Home</Link></li>
+                <li><Link to = '/favorites' className="nav-link" >Favorites</Link></li>
+                <li><Link to = '/' className="nav-link" onClick={props.logout}>Logout</Link></li>
             </ul>
             </div>
         ) : (

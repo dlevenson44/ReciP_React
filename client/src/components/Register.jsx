@@ -127,7 +127,7 @@ class Register extends Component {
                     <input className="auth-input" type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
                     <input className="auth-input" type="password" name="confirmPassword" value={this.state.confirmPassword} placeholder="Confirm Password" onChange={this.handleInputChange} />                    
                     <input className="auth-input" type="email" name="email" value={this.state.email} placeholder="Email" onChange={this.handleInputChange} />
-                    <input className="auth-input" type="submit" name="submit" value="Create Account" onChange={this.compareCredentials} />
+                    <input className="auth-input" type="submit" name="submit" value="Create Account" onChange={this.compareCredentials} id="registersubmit" />
                     {this.checkUsernameLength()}
                     {this.checkPasswordLength()}
                     {this.passwordConfirm()}

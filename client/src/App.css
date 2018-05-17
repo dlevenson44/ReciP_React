@@ -22,6 +22,53 @@
   font-size: large;
 }
 
+.mainheader {
+  font-size: 48px;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+  margin-right: 45px;
+}
+
+.auth-input, #search-field {
+  width: 550px;
+  font-size: 32px;
+}
+
+#search-button {
+  font-size: 31px;
+}
+
+.nav-link {
+  font-size: 24px;
+  margin: 12.5px;
+}
+
+.nav-link:visited {
+  color: blue;
+}
+
+.auth-container, .auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.auth-input {
+  margin: 30px;
+}
+
+#registersubmit {
+  font-size: 30px;
+  border: 1px solid black;
+  background-color: white
+}
+
 .recipe-subcontainer {
   display: flex;
   flex-direction: row;
@@ -30,23 +77,11 @@
 
 @media only screen and (max-width: 800px) {
   .mainheader {
-    text-align: center;
+    font-size: 32px;
   }
-
-  .nav-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    list-style: none;
-    margin-right: 45px;
-  }
-
   .nav-link {
+    font-size: 18px;
     margin: 12.5px;
-  }
-
-  .nav-link:visited {
-    color: blue;
   }
 
   .auth-input, #search-field {
@@ -56,12 +91,6 @@
 
   #search-button {
     font-size: 23px;
-  }
-
-  .auth-container, .auth-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
   .auth-input {

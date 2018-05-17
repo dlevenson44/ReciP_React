@@ -24,7 +24,7 @@ class Login extends Component {
                 <form className="auth-form" onSubmit={(e) => this.props.handleLoginSubmit(e, this.state)}>
                     <input className="auth-input" type="text" name="username" value={this.state.username} placeholder="Username" onChange={this.handleInputChange} />
                     <input className="auth-input" type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
-                    <input className="auth-input" type="submit" value="Login" />
+                    <input className="auth-input" type="submit" value="Login" id="registersubmit" />
                 </form>
             </div>
         )

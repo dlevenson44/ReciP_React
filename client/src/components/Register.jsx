@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Error from './Error';
+
 class Register extends Component {
     constructor() {
         super()
@@ -13,10 +15,12 @@ class Register extends Component {
         }
         this.compareCredentials = this.compareCredentials.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
+        // this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this)
         this.passwordConfirm = this.passwordConfirm.bind(this)
         this.searchTakenCredentials = this.searchTakenCredentials.bind(this)
         this.checkPasswordLength = this.checkPasswordLength.bind(this)
         this.checkUsernameLength = this.checkUsernameLength.bind(this)
+        this.renderTakenUsername = this.renderTakenUsername.bind(this)
     }
 
     componentWillMount() {
@@ -38,14 +42,17 @@ class Register extends Component {
         })
     }
 
-    compareCredentials(e) {
+    // need to exit comparecredentials function if one of the first two conditions are met
+
+    compareCredentials(e) {        
         for (let i = 0; i < this.state.fetchedResults.length; i++) {
             console.log(this.state.fetchedResults[i])
             if (this.state.fetchedResults[i].username === this.state.username) {
-                // console.log('username taken')
-                return (<div><p>There is already an account with this username.</p></div>)
+                alert('username taken')
+                // return (<p>There is already an account with this username.</p>);
+                return this.renderTakenUsername();
             } else if (this.state.fetchedResults[i].email === this.state.email) {
-                console.log('email taken')
+                alert('email taken')
                 return (<p>There is already an account associated with this email.</p>)
             } else if (i === this.state.fetchedResults.length - 1) {
                 console.log('changing create state')
@@ -53,13 +60,20 @@ class Register extends Component {
                     readyToCreate: true,
                 })
             }
-        }
+        }        
         if (this.state.readyToCreate === true) {
             console.log('creating account')
             this.props.handleRegisterSubmit(e, this.state)
         }
     }
-    
+
+    renderTakenUsername() {
+        return (
+            <div>
+                <p>There is already an account with this username.</p>
+            </div>
+        )
+    }
 
     handleInputChange(e) {
         const name = e.target.name;
@@ -109,16 +123,15 @@ class Register extends Component {
         return (
             <div className="register-container">
                 <form className="register-form" onSubmit={(e) => this.searchTakenCredentials(e)}>
-                    <input className="register-input" type="text" name="username" value={this.state.username} placeholder="Username" onChange={this.handleInputChange} />
-                    <input className="register-input" type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
-                    <input className="register-input" type="password" name="confirmPassword" value={this.state.confirmPassword} placeholder="Confirm Password" onChange={this.handleInputChange} />                    
-                    <input className="register-input" type="email" name="email" value={this.state.email} placeholder="Email" onChange={this.handleInputChange} />
-                    <input className="register-input" type="submit" value="Create Account" />
+                    <input  type="text" name="username" value={this.state.username} placeholder="Username" onChange={this.handleInputChange} />
+                    <input  type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
+                    <input  type="password" name="confirmPassword" value={this.state.confirmPassword} placeholder="Confirm Password" onChange={this.handleInputChange} />                    
+                    <input  type="email" name="email" value={this.state.email} placeholder="Email" onChange={this.handleInputChange} />
+                    <input  type="submit" name="submit" value="Create Account" onChange={this.compareCredentials} />
                     {this.checkUsernameLength()}
                     {this.checkPasswordLength()}
                     {this.passwordConfirm()}
-                </form> 
-                             
+                </form>         
             </div>
         )
     }

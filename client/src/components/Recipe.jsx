@@ -65,12 +65,12 @@ class Recipe extends Component {
                 <p>{this.props.recipe.healthLabels[0]}</p>
                 {this.renderButton()}
                 <div className="recipe-subcontainer">
-                <div>
+                <div className="recipe1">
                 <img src={this.props.recipe.image} />
                 <p>{this.state.calories} calories per serving</p>            
                 <p>{this.props.recipe.yield} servings</p>
                 </div>
-                <div>
+                <div className="recipe1">
                 <IngredientList ingredients={this.props.recipe.ingredients} />
                 </div>
                 </div>

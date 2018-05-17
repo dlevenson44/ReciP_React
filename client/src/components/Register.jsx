@@ -121,13 +121,13 @@ class Register extends Component {
 
     render() {
         return (
-            <div className="register-container">
-                <form className="register-form" onSubmit={(e) => this.searchTakenCredentials(e)}>
-                    <input className="register-input" type="text" name="username" value={this.state.username} placeholder="Username" onChange={this.handleInputChange} />
-                    <input className="register-input" type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
-                    <input className="register-input" type="password" name="confirmPassword" value={this.state.confirmPassword} placeholder="Confirm Password" onChange={this.handleInputChange} />                    
-                    <input className="register-input" type="email" name="email" value={this.state.email} placeholder="Email" onChange={this.handleInputChange} />
-                    <input className="register-input" type="submit" name="submit" value="Create Account" onChange={this.compareCredentials} />
+            <div className="auth-container">
+                <form className="auth-form" onSubmit={(e) => this.searchTakenCredentials(e)}>
+                    <input className="auth-input" type="text" name="username" value={this.state.username} placeholder="Username" onChange={this.handleInputChange} />
+                    <input className="auth-input" type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
+                    <input className="auth-input" type="password" name="confirmPassword" value={this.state.confirmPassword} placeholder="Confirm Password" onChange={this.handleInputChange} />                    
+                    <input className="auth-input" type="email" name="email" value={this.state.email} placeholder="Email" onChange={this.handleInputChange} />
+                    <input className="auth-input" type="submit" name="submit" value="Create Account" onChange={this.compareCredentials} />
                     {this.checkUsernameLength()}
                     {this.checkPasswordLength()}
                     {this.passwordConfirm()}

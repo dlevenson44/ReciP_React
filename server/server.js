@@ -31,7 +31,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 app.use((req, res, next) => {
 	console.log('---', req.user, req.path);
@@ -47,6 +47,11 @@ app.listen(PORT, () => {
 app.get('/', (req, res) => {
 	res.send('Hello World!')
 });
+
+app.use(express.static(path.join(__dirname, '../../client/build')))
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+})
 
 // routes
 const authRoutes = require('./routes/auth-routes')

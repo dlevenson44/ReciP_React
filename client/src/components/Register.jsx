@@ -123,11 +123,11 @@ class Register extends Component {
         return (
             <div className="register-container">
                 <form className="register-form" onSubmit={(e) => this.searchTakenCredentials(e)}>
-                    <input  type="text" name="username" value={this.state.username} placeholder="Username" onChange={this.handleInputChange} />
-                    <input  type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
-                    <input  type="password" name="confirmPassword" value={this.state.confirmPassword} placeholder="Confirm Password" onChange={this.handleInputChange} />                    
-                    <input  type="email" name="email" value={this.state.email} placeholder="Email" onChange={this.handleInputChange} />
-                    <input  type="submit" name="submit" value="Create Account" onChange={this.compareCredentials} />
+                    <input className="register-input" type="text" name="username" value={this.state.username} placeholder="Username" onChange={this.handleInputChange} />
+                    <input className="register-input" type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleInputChange} />
+                    <input className="register-input" type="password" name="confirmPassword" value={this.state.confirmPassword} placeholder="Confirm Password" onChange={this.handleInputChange} />                    
+                    <input className="register-input" type="email" name="email" value={this.state.email} placeholder="Email" onChange={this.handleInputChange} />
+                    <input className="register-input" type="submit" name="submit" value="Create Account" onChange={this.compareCredentials} />
                     {this.checkUsernameLength()}
                     {this.checkPasswordLength()}
                     {this.passwordConfirm()}

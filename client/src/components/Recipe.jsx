@@ -50,7 +50,7 @@ class Recipe extends Component {
             return (
                 <div>
                     <form onSubmit={(e) => this.addFavorite(e, this.state)}>
-                        <input type="submit" value="Add Favorite" id="favorite-submit" />
+                        <input type="submit" value="Add Favorite" className="favorite-submit" />
                     </form>
                 </div>
             )
@@ -67,7 +67,6 @@ class Recipe extends Component {
                 <div className="recipe-subcontainer">
                 <div>
                 <img src={this.props.recipe.image} />
-                <p>{this.props.recipe.dietLabels[0]}</p>
                 <p>{this.state.calories} calories per serving</p>            
                 <p>{this.props.recipe.yield} servings</p>
                 </div>

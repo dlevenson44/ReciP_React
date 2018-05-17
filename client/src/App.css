@@ -49,7 +49,7 @@
     color: blue;
   }
 
-  .register-input, #search-field {
+  .auth-input, #search-field {
     width: 250px;
     font-size: 24px;
   }
@@ -58,13 +58,13 @@
     font-size: 23px;
   }
 
-  .register-container, .register-form {
+  .auth-container, .auth-form {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .register-input {
+  .auth-input {
     margin: 10px;
   }
 }

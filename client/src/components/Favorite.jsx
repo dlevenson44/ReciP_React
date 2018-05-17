@@ -11,12 +11,12 @@ const Favorite = (props) => {
             <p>{props.favorite.health}</p>
             <button onClick={() => props.deleteFavorite(props.favorite.id)} className="favorite-submit">Delete Favorite</button>
             <div className="recipe-subcontainer">
-            <div>
+            <div className="recipe1">
             <img src={props.favorite.img} />
             <p>{props.favorite.calories} calories per serving</p>
             <p>{props.favorite.servings} servings</p>                                    
             </div>
-            <div>
+            <div className="recipe1">
             <FaveIngredientList ingredients={props.favorite.ingredient} />            
             </div>
             </div>

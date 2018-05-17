@@ -5,7 +5,7 @@ import FaveIngredientList from './FaveIngredientList';
 const Favorite = (props) => {
     return (
         <div>
-            <h3>{props.favorite.title} -- <a href={props.favorite.link}>See full recipe</a></h3>
+            <h3>{props.favorite.title} -- <a href={props.favorite.link}>See Instructions</a></h3>
             <p>{props.favorite.diet}</p>
             <p>{props.favorite.calories}</p>            
             <p>{props.favorite.health}</p>

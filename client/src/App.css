@@ -1,3 +1,7 @@
+body {
+  background-color: #1C3144;
+}
+
 .App {
   text-align: center;
 }
@@ -13,6 +17,7 @@
 .mainheader {
   font-family: 'Ubuntu', sans-serif;
   font-size: 48px;
+  color: #FFBA08;
 }
 
 .nav-list {
@@ -26,21 +31,37 @@
 .auth-input, #search-field {
   width: 550px;
   font-size: 32px;
+  background-color: #1C3144;
+  border: none;
+  border-bottom: 3px solid #FFBA08;
+  color: #FFBA08;
+}
+
+.auth-input::placeholder, #search-field::placeholder {
+  color: #FFBA08;
 }
 
 #search-button {
-  background-color: white;
-  border: 1px solid black;
-  font-size: 31px;
+  background-color: #1C3144;
+  border: none;
+  border-bottom: 3px solid #FFBA08;
+  color: #FFBA08;
+  font-size: 30px;
 }
 
 .nav-link {
   font-size: 24px;
   margin: 12.5px;
+  color: #FFBA08;
+  padding: 10px;
+}
+
+.nav-link:hover {
+  border: 3px solid #3F88C5;
 }
 
 .nav-link:visited {
-  color: blue;
+  color: #FFBA08;
 }
 
 .auth-container, .auth-form {
@@ -56,8 +77,9 @@
 
 #registersubmit {
   font-size: 30px;
-  border: 1px solid black;
-  background-color: white
+  background-color: #1C3144;
+  border: none;
+  border-bottom: 3px solid #FFBA08;
 }
 
 .recipe-subcontainer {
@@ -72,13 +94,28 @@
 
 .favorite-submit {
   font-size: 24px;
-  border: 1px solid black;
-  background-color: white;
+  background-color: #1C3144;
+  border: none;
+  border-bottom: 3px solid #FFBA08;
+  color: #FFBA08;
+}
+
+.favorite-submit:hover {
+  border: 3px solid #3F88C5;
+  text-decoration: underline #FFBA08;
+  padding: 12.5px;
+}
+
+h3, p {
+  color: #FFBA08;
+}
+
+a, a:hover {
+  color: #F8DDA4;
 }
 
 @media only screen and (max-width: 800px) {
   .mainheader {
-    font-family: 'Ubuntu', sans-serif;
     font-size: 32px;
   }
   .nav-link {

@@ -43,12 +43,14 @@ class Search extends Component {
         }
     }
 
+    // <input type="submit" value="Search" id="search-button" />
+
     render() {
         return (
             <div>
                 <form id="request" onSubmit={(e) => this.searchRecipe(e, this.state.search)}>
                     <input type="text" id="search-field" name="search" placeholder="Search Recipes" value={this.state.search} onChange={this.handleInputChange} />
-                    <input type="submit" value="Search" id="search-button" />
+                    <button type="submit" id="search-button">Search</button>
                 </form>
                 {this.renderResults()}
             </div>

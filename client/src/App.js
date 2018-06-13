@@ -67,7 +67,7 @@ class App extends Component {
 
   handleUpdateSubmit(e, data, id) {
     e.preventDefault()
-    fetch(`/api/auth${id}`, {
+    fetch(`/api/auth/${id}`, {
       method: 'PUT',
       credentials: 'inlucde',
       headers: {
